@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockMB | Dashboard</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">StockMB</div>
+        <div class="header-user"><i class="fa-solid fa-user-circle"></i></div>
+    </header>
+
+    <div class="app-container">
+        <nav class="sidebar">
+            <ul>
+                <li class="active">
+                    <a href="#"><i class="fas fa-th-large"></i> dashboard</a>
+                </li>
+                <li>
+                    <a href="ProductSales.html"><i class="fas fa-shopping-cart"></i> Product Sales</a>
+                </li>
+                <li>
+                    <a href="Productmanagement.html"><i class="fas fa-box-open"></i> Product Management</a>
+                </li>
+                <li>
+                    <a href="Employee.html"><i class="fas fa-users"></i> Employee Data</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h1 class="date-header">วันเสาร์ที่ 1 พ.ย. 2568</h1>
+
+            <section class="section-title">รายได้</section>
+            <p class="section-subtitle">ภาพรวมรายได้ รายวัน รายเดือน รายปี</p>
+            
+            <div class="cards-grid">
+                 <div class="stat-card revenue-card active-card" onclick="location.href='DailyIncome.html'">
+                    <p>฿7,000</p>
+                    <p class="stat-label">รายได้รายวัน </p>
+                </div>
+                <div class="stat-card revenue-card" onclick="location.href='MonthlyIncome.html'">
+                    <p>฿7,000</p>
+                    <p class="stat-label">รายได้รายเดือน</p>
+                </div>
+                <div class="stat-card revenue-card" onclick="location.href='YearlyIncome.html'">
+                    <p>฿7,000</p>
+                    <p class="stat-label">รายได้รายปี</p>
+                </div>
+            </div>
+
+            <section class="section-title">รายจ่าย</section>
+            <p class="section-subtitle">ภาพรวมรายจ่าย รายวัน รายเดือน รายปี</p>
+            
+            <div class="cards-grid">
+                <div class="stat-card expense-card" onclick="location.href='DailyExpense.html'">
+                    <p>฿7,000</p>
+                    <p class="stat-label">รายจ่ายรายวัน</p>
+                </div>
+                <div class="stat-card expense-card" onclick="location.href='MonthlyExpense.html'">
+                    <p>฿7,000</p>
+                    <p class="stat-label">รายจ่ายรายเดือน</p>
+                </div>
+                <div class="stat-card expense-card" onclick="location.href='MonthlyExpense.html'">
+                    <p>฿7,000</p>
+                    <p class="stat-label">รายจ่ายรายปี</p>
+                </div>
+            </div>
+
+            <section class="section-title">รายงาน</section>
+            <p class="section-subtitle">สิ่งที่ต้องดำเนินการในคลังสินค้า</p>
+            
+            <div class="reports-grid">
+                <div class="report-card">
+                    <div class="report-icon-box file-icon">📄</div>
+                    <div class="report-content">
+                        <span class="report-number">2</span>
+                        <p class="report-label">ใบกำกับสินค้าค้างชำระ</p>
+                    </div>
+                </div>
+                <div class="report-card">
+                    <div class="report-icon-box box-icon">📦</div>
+                    <div class="report-content">
+                        <span class="report-number">2</span>
+                        <p class="report-label">ใบสั่งสินค้าค้างชำระ</p>
+                    </div>
+                </div>
+                <div class="report-card">
+                    <div class="report-icon-box home-icon">🏠</div>
+                    <div class="report-content">
+                        <span class="report-number">2</span>
+                        <p class="report-label">จำนวนสินค้าใกล้หมด</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="section-title">จำนวนสินค้า</section>
+            <p class="section-subtitle">ภาพรวมจำนวนสินค้าคงคลัง</p>
+
+            <div class="inventory-section">
+                <button class="inventory-button">ข้อมูลสต็อกสินค้า</button>
+            </div>
+
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

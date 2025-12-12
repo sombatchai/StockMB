@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockMB | Product Management</title>
+    <link rel="stylesheet" href="Productmanagement.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="header-logo">StockMB</div> 
+        <div class="header-user"><i class="fa-solid fa-user-circle"></i></div>
+    </header>
+
+    <div class="app-container">
+        <nav class="sidebar" id="sidebar">
+            <ul>
+                <li>
+                    <a href="index.html"><i class="fas fa-th-large"></i> dashboard</a>
+                </li>
+                <li>
+                    <a href="productsales.html"><i class="fas fa-shopping-cart"></i> Product Sales</a>
+                </li>
+                <li class="active">
+                    <a href="productmanagement.html"><i class="fas fa-box-open"></i> Product Management</a>
+                </li>
+                <li>
+                    <a href="Employee.html"><i class="fas fa-users"></i> Employee Data</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content" id="mainContent">
+            
+            <div class="management-header-area">
+                <h1 class="management-title">ระบบการจัดการสินค้า</h1>
+            </div>
+
+            <div class="management-controls">
+                <input type="text" placeholder="ค้นหา..." class="search-input">
+                <select class="filter-select">
+                    <option>สินค้าทั้งหมด</option>
+                    <option>สินค้าใกล้หมด</option>
+                    <option>สินค้าหมดสต็อก</option>
+                </select>
+                <button class="add-product-btn"><i class="fas fa-plus-circle"></i> เพิ่มสินค้า</button>
+            </div>
+
+            <div class="product-table-container">
+                <table class="product-management-table">
+                    <thead>
+                        <tr>
+                            <th>ลำดับ</th>
+                            <th>รหัส</th>
+                            <th>ชื่อสินค้า</th>
+                            <th>สินค้า</th>
+                            <th>จำนวนสินค้า</th>
+                            <th></th> </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>001</td>
+                            <td>น้ำยาล้างจาน</td>
+                            <td class="product-img-cell">
+                                <img src="placeholder_liquid.png" alt="น้ำยาล้างจาน" class="product-thumbnail">
+                            </td>
+                            <td>701</td>
+                            <td class="action-cell">
+                                <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>2</td>
+                            <td>002</td>
+                            <td>ผงซักฟอก</td>
+                            <td class="product-img-cell">
+                                <img src="placeholder_detergent.png" alt="ผงซักฟอก" class="product-thumbnail">
+                            </td>
+                            <td>812</td>
+                            <td class="action-cell">
+                                <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>003</td>
+                            <td>ทิชชู่</td>
+                            <td class="product-img-cell">
+                                <img src="placeholder_tissue.png" alt="ทิชชู่" class="product-thumbnail">
+                            </td>
+                            <td>408</td>
+                            <td class="action-cell">
+                                <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>004</td>
+                            <td>ถุงขยะ</td>
+                            <td class="product-img-cell">
+                                <img src="placeholder_bag.png" alt="ถุงขยะ" class="product-thumbnail">
+                            </td>
+                            <td>576</td>
+                            <td class="action-cell">
+                                <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                            </td>
+                        </tr>
+                        
+                        </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

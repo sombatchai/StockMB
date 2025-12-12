@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0; /* สีพื้นหลังอ่อน ๆ */
+}
+
+.login-container {
+    background-color: #ffffff; /* สีพื้นหลังของกล่องฟอร์ม */
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* ความกว้างของกล่องฟอร์ม */
+    text-align: center;
+}
+
+.title {
+    color: #4dc4d3; /* สีฟ้าอ่อนที่คล้ายในรูป */
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 15px 10px 40px; /* เว้นช่องด้านซ้ายสำหรับไอคอน */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    outline: none;
+}
+
+/* ปรับให้ input ตัวที่สอง (รหัสผ่าน) ไม่มีไอคอน */
+.input-group:nth-child(2) input {
+    padding-left: 15px; /* ไม่ต้องเว้นที่ให้ไอคอน */
+}
+
+.input-group .icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 1.2em;
+    /* สำหรับไอคอนอีเมล */
+}
+
+
+.forgot-password {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.forgot-password a {
+    color: #4dc4d3; /* สีฟ้าอ่อน */
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4dc4d3; /* สีฟ้าอ่อนของปุ่ม */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #3aa6b3; /* สีเข้มขึ้นเมื่อโฮเวอร์ */
+}
+
+.register-section {
+    font-size: 0.9em;
+    color: #666;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.register-link {
+    color: #4dc4d3; /* สีฟ้าอ่อน */
+    text-decoration: none;
+}
+
+/* ปรับสีพื้นหลังของ container เพื่อให้คล้ายกับในรูป */
+.login-container {
+    background-color: #f7f7f7; 
+    box-shadow: none; /* ลบเงาออกเพื่อให้ดูมินิมอลเหมือนในรูป */
+    border: 1px solid #e0e0e0; /* เพิ่มเส้นขอบบางๆ แทนเงา */
+}

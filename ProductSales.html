@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockMB | Product Sales</title>
+    <link rel="stylesheet" href="ProductSales.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="header-logo">StockMB</div> 
+        <div class="header-user"><i class="fa-solid fa-user-circle"></i></div>
+    </header>
+
+    <div class="app-container">
+        <nav class="sidebar" id="sidebar">
+            <ul>
+                <li>
+                    <a href="index.html"><i class="fas fa-th-large"></i> dashboard</a>
+                </li>
+                <li class="active">
+                    <a href="productsales.html"><i class="fas fa-shopping-cart"></i> Product Sales</a>
+                </li>
+                <li>
+                    <a href="Productmanagement.html"><i class="fas fa-box-open"></i> Product Management</a>
+                </li>
+                <li>
+                    <a href="Employee.html"><i class="fas fa-users"></i> Employee Data</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content" id="mainContent">
+            <h1 class="date-header"><i class="far fa-calendar-alt"></i> วันเสาร์ที่ 1 พ.ย. 2568</h1>
+            
+            <div class="sales-grid">
+                
+                <div class="product-catalog">
+                    <h2 class="section-title">สินค้าหน้าร้าน</h2>
+
+                    <div class="controls-area">
+                        <input type="text" placeholder="ค้นหา..." class="search-input">
+                        <select class="filter-select">
+                            <option>ประเภทสินค้า</option>
+                            <option>ผงซักฟอก</option>
+                            <option>อาหารสัตว์</option>
+                        </select>
+                    </div>
+
+                    <div class="product-list">
+                        <div class="product-card">
+                            <div class="product-image-placeholder"> </div>
+                            <h4 class="product-name">น้ำยาซักผ้า</h4>
+                            <p class="product-info">สินค้าคงเหลือ 701 ชิ้น</p>
+                            <p class="product-price">ราคาต่อชิ้น 15 บาท</p>
+                            <div class="product-actions">
+                                <button class="action-btn add-btn"><i class="fas fa-plus-circle"></i> เพิ่มสินค้า</button>
+                                <button class="action-btn minus-btn"><i class="fas fa-minus-circle"></i> ลดสินค้า</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image-placeholder"></div>
+                            <h4 class="product-name">ถุงขยะ</h4>
+                            <p class="product-info">สินค้าคงเหลือ 576 ชิ้น</p>
+                            <p class="product-price">ราคาต่อชิ้น 20 บาท</p>
+                            <div class="product-actions">
+                                <button class="action-btn add-btn"><i class="fas fa-plus-circle"></i> เพิ่มสินค้า</button>
+                                <button class="action-btn minus-btn"><i class="fas fa-minus-circle"></i> ลดสินค้า</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image-placeholder"></div>
+                            <h4 class="product-name">ไม้กวาด</h4>
+                            <p class="product-info">สินค้าคงเหลือ 544 ชิ้น</p>
+                            <p class="product-price">ราคาต่อชิ้น 30 บาท</p>
+                            <div class="product-actions">
+                                <button class="action-btn add-btn"><i class="fas fa-plus-circle"></i> เพิ่มสินค้า</button>
+                                <button class="action-btn minus-btn"><i class="fas fa-minus-circle"></i> ลดสินค้า</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image-placeholder"></div>
+                            <h4 class="product-name">สเปรย์ปรับอากาศ</h4>
+                            <p class="product-info">สินค้าคงเหลือ 455 ชิ้น</p>
+                            <p class="product-price">ราคาต่อชิ้น 30 บาท</p>
+                            <div class="product-actions">
+                                <button class="action-btn add-btn"><i class="fas fa-plus-circle"></i> เพิ่มสินค้า</button>
+                                <button class="action-btn minus-btn"><i class="fas fa-minus-circle"></i> ลดสินค้า</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image-placeholder"></div>
+                            <h4 class="product-name">อาหารสุนัข</h4>
+                            <p class="product-info">สินค้าคงเหลือ 231 ชิ้น</p>
+                            <p class="product-price">ราคาต่อชิ้น 25 บาท</p>
+                            <div class="product-actions">
+                                <button class="action-btn add-btn"><i class="fas fa-plus-circle"></i> เพิ่มสินค้า</button>
+                                <button class="action-btn minus-btn"><i class="fas fa-minus-circle"></i> ลดสินค้า</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart-and-checkout">
+                    <div class="cart-container">
+                        <div class="cart-header">
+                            <span class="cart-item-label">รายการ</span>
+                            <span class="cart-qty-label">จำนวน</span>
+                            <span class="cart-price-label">ราคา</span>
+                        </div>
+                        <div class="cart-items">
+                            <div class="empty-cart-message">รายการ: 0 จำนวนชิ้น: 0</div>
+                        </div>
+                        
+                        <div class="cart-summary">
+                            <p>รวมเป็นเงิน:</p>
+                            <p>ส่วนลด:</p>
+                            <p class="total-amount">รวมทั้งหมด:</p>
+                        </div>
+                        
+                        <div class="checkout-actions">
+                            <p class="payment-due">เงินสด: 0</p>
+                            <p class="payment-change">เงินทอน: 0</p>
+                            <p class="thanks-message">ขอบคุณที่ใช้บริการ</p>
+                        </div>
+                    </div>
+
+                    <button class="checkout-button">ชำระเงิน</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

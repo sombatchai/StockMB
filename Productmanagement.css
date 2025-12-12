@@ -1,0 +1,249 @@
+/* --- 1. BASE STYLES & LAYOUT (Header & Sidebar) --- */
+
+:root {
+    --primary-blue: #007bff;
+    --stockmb-blue: #007bff; /* สีฟ้าหลักของ StockMB */
+    --dark-blue: #01579b;
+    --background-grey: #f4f7f6;
+    --sidebar-width: 250px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Tahoma', sans-serif; /* เปลี่ยนฟอนต์ให้เข้ากับภาษาไทย */
+}
+
+body {
+    background-color: var(--background-grey);
+    color: #333;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: var(--stockmb-blue);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.header-user i {
+    font-size: 1.5em;
+}
+
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.app-container {
+    display: flex;
+    padding-top: 60px; 
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    height: calc(100vh - 60px);
+    background-color: white;
+    padding: 20px 0;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin: 5px 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 20px;
+    color: #555;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+    border-left: 5px solid transparent;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Sidebar Active State: ใช้สี #007bff ตามที่ร้องขอ */
+.sidebar li.active a,
+.sidebar a:hover {
+    background-color: #f0f8ff;
+    color: var(--primary-blue); /* #007bff */
+    border-left-color: var(--primary-blue); /* #007bff */
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    margin-left: var(--sidebar-width); 
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+/* --- 2. PRODUCT MANAGEMENT STYLES (ส่วนที่คุณให้มา) --- */
+
+.management-header-area {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.management-title {
+    font-size: 1.6em;
+    color: #333;
+    margin: 5px 0;
+}
+
+.management-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.management-controls .search-input {
+    flex-grow: 1;
+    max-width: 300px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.management-controls .filter-select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 150px;
+}
+
+.add-product-btn {
+    background-color: #5cb85c; /* สีเขียว */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* ตาราง */
+.product-table-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    overflow-x: auto; 
+}
+
+.product-management-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px; 
+}
+
+.product-management-table th, 
+.product-management-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.product-management-table thead th {
+    background-color: #f7f7f7;
+    color: #333;
+    font-weight: bold;
+    border-top: 1px solid #eee;
+}
+
+.product-management-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.product-img-cell {
+    width: 100px; 
+    text-align: center;
+}
+
+.product-thumbnail {
+    width: 50px; 
+    height: auto;
+    border-radius: 3px;
+    object-fit: cover;
+}
+
+.action-cell {
+    width: 50px;
+    text-align: center;
+}
+
+.edit-btn {
+    background-color: var(--primary-blue); /* ใช้สี #007bff */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+}
+
+.edit-btn:hover {
+    background-color: var(--dark-blue-hover); /* ใช้สีเข้มขึ้นเมื่อ hover */
+}
+
+/* --- 3. MEDIA QUERIES (สำหรับมือถือ) --- */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
