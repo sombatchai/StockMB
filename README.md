@@ -87,20 +87,6 @@ npm start
 | Admin | `E003` | `123456` |
 | User | `<username>` | `<password>` |
 
-### นำเข้าสินค้าจาก Excel
-
-ในหน้า **Product Management** ดับเบิลคลิกเพื่อเลือกไฟล์ Excel หัวตารางต้องเป็นภาษาอังกฤษ:
-
-| product_id | product_name | pro_category | price | quantity | image |
-|---|---|---|---|---|---|
-
----
-
-##  เอกสารประกอบ
-
-- Software Requirement Specification (SRS) — ความต้องการของระบบ, DFD, ERD, Use Case
-- รายงานโครงงาน OOP & Data Structures — Class Diagram และคู่มือการใช้งาน
-
 ---
 
 ##  ผู้จัดทำ
