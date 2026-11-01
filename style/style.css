@@ -22,7 +22,7 @@ body {
     width: 350px; /* ปรับความกว้างให้พอดีกับดีไซน์ */
     text-align: center;
     border: 1px solid #e0e0e0;
-    box-shadow: none; /* ลบเงาออกเพื่อให้ดูมินิมอล */
+    box-shadow: none; 
 }
 
 .title {
@@ -55,7 +55,7 @@ body {
     transform: translateY(-50%);
     color: #888;
     font-size: 1.1em;
-    pointer-events: none; /* ให้คลิกทะลุไอคอนได้ */
+    pointer-events: none; 
 }
 
 .forgot-password {

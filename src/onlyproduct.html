@@ -85,7 +85,7 @@
             ipcRenderer.send('get-categories');
         });
 
-        // 🟢 1. จัดการข้อมูลหมวดหมู่สินค้า
+        //  1. จัดการข้อมูลหมวดหมู่สินค้า
         ipcRenderer.on('render-categories', (event, categories) => {
             const select = document.getElementById('categoryFilter');
             select.innerHTML = '<option value="">หมวดหมู่ทั้งหมด</option>';
@@ -104,7 +104,7 @@
             displayFilteredProducts(products); 
         });
 
-        // 🟢 2. ฟังก์ชันรวมสำหรับกรองข้อมูล (ชื่อ/รหัส และ หมวดหมู่)
+        //  2. ฟังก์ชันรวมสำหรับกรองข้อมูล (ชื่อ/รหัส และ หมวดหมู่)
         function filterProducts() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
             const category = document.getElementById('categoryFilter').value;
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.querySelector('.sidebar ul');
 
     if (role === 'Staff') {
-        // 🟢 สำหรับพนักงานทั่วไป: ซ่อนเมนูที่ไม่เกี่ยวข้อง
+        //  สำหรับพนักงานทั่วไป: ซ่อนเมนูที่ไม่เกี่ยวข้อง
         const adminMenus = document.querySelectorAll('.admin-only');
         adminMenus.forEach(menu => menu.style.display = 'none');
         
@@ -257,7 +257,7 @@ function processExcelFile(file) {
             const jsonData = XLSX.utils.sheet_to_json(firstSheet, { defval: "" });
 
             if (jsonData.length === 0) {
-                alert("❌ ไม่พบข้อมูลในไฟล์ Excel");
+                alert("ไม่พบข้อมูลในไฟล์ Excel");
                 return;
             }
 
@@ -265,7 +265,7 @@ function processExcelFile(file) {
             ipcRenderer.send('import-products-bulk', jsonData);
 
             ipcRenderer.once('import-success', (event, count) => {
-                alert(`✅ นำเข้าข้อมูลสำเร็จทั้งหมด ${count} รายการ`);
+                alert(` นำเข้าข้อมูลสำเร็จทั้งหมด ${count} รายการ`);
                 ipcRenderer.send('load-products'); // รีโหลดตาราง
             });
 
@@ -279,11 +279,11 @@ function processExcelFile(file) {
 }
 
 function loadData() {
-    // 🟢 1. ล้างตัวดักฟังเก่าออกให้หมดก่อน (เพื่อไม่ให้ทำงานซ้อนกันจนอืด)
+    //  1. ล้างตัวดักฟังเก่าออกให้หมดก่อน 
     ipcRenderer.removeAllListeners('render-employees');
     ipcRenderer.removeAllListeners('render-products');
 
-    // 🟢 2. ส่งคำสั่งดึงข้อมูล
+    //  2. ส่งคำสั่งดึงข้อมูล
     ipcRenderer.send('load-data-request');
 }
 

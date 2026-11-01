@@ -132,11 +132,11 @@
         });
 
 function loadData() {
-    // 🟢 1. ล้างตัวดักฟังเก่าออกให้หมดก่อน (เพื่อไม่ให้ทำงานซ้อนกันจนอืด)
+    //  1. ล้างตัวดักฟังเก่าออกให้หมดก่อน 
     ipcRenderer.removeAllListeners('render-employees');
     ipcRenderer.removeAllListeners('render-products');
 
-    // 🟢 2. ส่งคำสั่งดึงข้อมูล
+    //  2. ส่งคำสั่งดึงข้อมูล
     ipcRenderer.send('load-data-request');
 }
 
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', loadData);
             updateCurrentDate();
         }
 
-        // 3. ฟังก์ชันสำหรับส่งคำขอข้อมูลใหม่เมื่อเปลี่ยน Filter (ตามที่คุณต้องการเพิ่ม)
+        // 3. ฟังก์ชันสำหรับส่งคำขอข้อมูลใหม่เมื่อเปลี่ยน Filter 
         function changeTimeFilter() {
             fetchImportDashboardData();
         }
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', loadData);
             document.getElementById('current-date').innerText = now.toLocaleDateString('th-TH', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
         }
 
-        // 6. เมื่อโหลดหน้าจอ ให้ดึงค่าเริ่มต้นและทำงาน (ตามที่คุณต้องการเพิ่ม)
+        // 6. เมื่อโหลดหน้าจอ ให้ดึงค่าเริ่มต้นและทำงาน 
         document.addEventListener('DOMContentLoaded', () => {
             fetchImportDashboardData(); // ฟังก์ชันนี้รวมการดึงค่าเริ่มต้นจาก select ไว้แล้ว
             
@@ -222,11 +222,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.querySelector('.sidebar ul');
 
     if (role === 'Staff') {
-        // 🟢 สำหรับพนักงานทั่วไป: ซ่อนเมนูที่ไม่เกี่ยวข้อง
+        //  สำหรับพนักงานทั่วไป: ซ่อนเมนูที่ไม่เกี่ยวข้อง
         const adminMenus = document.querySelectorAll('.admin-only');
         adminMenus.forEach(menu => menu.style.display = 'none');
         
-        // หากพนักงานพยายามเข้าหน้า index.html (Dashboard) ให้ดีดไปหน้าขายสินค้าทันที
+        // หากพนักงานพยายามเข้าหน้า index.html ให้ดีดไปหน้าขายสินค้าทันที
         if (window.location.pathname.includes('index.html')) {
             window.location.href = 'productsales.html';
         }

@@ -156,11 +156,11 @@
 
     ipcRenderer.on('add-employee-response', (event, response) => {
         if (response.success) {
-            alert('✅ บันทึกข้อมูลพนักงานเรียบร้อย!');
+            alert('บันทึกข้อมูลพนักงานเรียบร้อย!');
             localStorage.setItem('lastEmployee', JSON.stringify(response.data));
             window.location.href = 'EmpSave.html'; 
         } else {
-            alert('❌ บันทึกไม่สำเร็จ: ' + response.message);
+            alert('บันทึกไม่สำเร็จ: ' + response.message);
         }
     });
    function logout() {
@@ -185,11 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ในทุกหน้า (เช่น Employee.js, Product.js)
 function loadData() {
-    // 🟢 1. ล้างตัวดักฟังเก่าออกให้หมดก่อน (เพื่อไม่ให้ทำงานซ้อนกันจนอืด)
+    // 1. ล้างตัวดักฟังเก่าออกให้หมดก่อน (เพื่อไม่ให้ทำงานซ้อนกันจนอืด)
     ipcRenderer.removeAllListeners('render-employees');
     ipcRenderer.removeAllListeners('render-products');
 
-    // 🟢 2. ส่งคำสั่งดึงข้อมูล
+    //  2. ส่งคำสั่งดึงข้อมูล
     ipcRenderer.send('load-data-request');
 }
 

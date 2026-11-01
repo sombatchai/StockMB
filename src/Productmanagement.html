@@ -158,7 +158,7 @@
         let oldProductId = ''; 
         let currentStockInId = '';
 
-        //  1. เรียกข้อมูลเมื่อโหลดหน้าจอสำเร็จ (ส่วนที่คุณต้องการนำมาใส่)
+        //  1. เรียกข้อมูลเมื่อโหลดหน้าจอสำเร็จ (ส่
        document.addEventListener('DOMContentLoaded', () => {
     // ดึงชื่อพนักงานมาแสดง (ถ้าไม่มีให้เด้งไปหน้า Login)
     const name = localStorage.getItem('employeeName');
@@ -188,11 +188,11 @@
         });
 
 function loadData() {
-    // 🟢 1. ล้างตัวดักฟังเก่าออกให้หมดก่อน (เพื่อไม่ให้ทำงานซ้อนกันจนอืด)
+    //  1. ล้างตัวดักฟังเก่าออกให้หมดก่อน 
     ipcRenderer.removeAllListeners('render-employees');
     ipcRenderer.removeAllListeners('render-products');
 
-    // 🟢 2. ส่งคำสั่งดึงข้อมูล
+    //  2. ส่งคำสั่งดึงข้อมูล
     ipcRenderer.send('load-data-request');
 }
 
@@ -229,7 +229,7 @@ function renderProductTable(products) {
     });
 }
         
-        //  4. ฟังก์ชันจัดการปุ่มกดในตาราง (ต้องอยู่นอก ipcRenderer.on)
+        //  4. ฟังก์ชันจัดการปุ่มกดในตาราง 
         function openStockInModal(productId) {
             currentStockInId = productId;
             ipcRenderer.send('get-product-by-id', productId);
@@ -314,7 +314,7 @@ function renderProductTable(products) {
         product_id: currentStockInId, 
         add_quantity: qtyToAdd, 
         buy_cost: costPerUnit,
-        recordedBy: currentEmployee // ✅ ชื่อนี้จะถูกนำไปบันทึกลงคอลัมน์ recorded_by ใน DB
+        recordedBy: currentEmployee //  ชื่อนี้จะถูกนำไปบันทึกลงคอลัมน์ recorded_by ใน DB
     };
 
     ipcRenderer.send('update-stock-quantity', data);
@@ -383,7 +383,7 @@ function renderProductTable(products) {
         product_id: document.getElementById('import-product-id').value,
         add_quantity: parseInt(document.getElementById('import-quantity').value),
         buy_cost: parseFloat(document.getElementById('import-cost').value),
-        recordedBy: localStorage.getItem('employeeName') // ✅ ดึงชื่อจากหน้า Login มาส่ง
+        recordedBy: localStorage.getItem('employeeName') //  ดึงชื่อจากหน้า Login มาส่ง
     };
     ipcRenderer.send('update-stock-quantity', data);
 }
@@ -437,9 +437,9 @@ function handleFileSelect(event) {
 
 // ฟังก์ชันประมวลผลไฟล์ Excel
 function processExcelFile(file) {
-    // 🟢 ตรวจสอบว่า Library โหลดมาจริงไหม
+    //  ตรวจสอบว่า Library โหลดมาจริงไหม
     if (typeof XLSX === 'undefined') {
-        alert("❌ ข้อผิดพลาด: ไม่พบ Library XLSX (โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตหรือการเรียก Script)");
+        alert(" ข้อผิดพลาด: ไม่พบ Library XLSX (โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตหรือการเรียก Script)");
         return;
     }
 
@@ -451,7 +451,7 @@ function processExcelFile(file) {
             const firstSheetName = workbook.SheetNames[0];
             const firstSheet = workbook.Sheets[firstSheetName];
             
-            // 🟢 แปลงเป็น JSON โดยลบช่องว่างหัวตารางอัตโนมัติ
+            //  แปลงเป็น JSON โดยลบช่องว่างหัวตารางอัตโนมัติ
             const jsonData = XLSX.utils.sheet_to_json(firstSheet, { 
     defval: "", 
     raw: false, // บังคับให้อ่านค่าเป็น string ทั้งหมดเพื่อป้องกันเลข ID เพี้ยน
@@ -459,7 +459,7 @@ function processExcelFile(file) {
 });
 
             if (jsonData.length === 0) {
-                alert("❌ ไม่พบข้อมูลในไฟล์ Excel");
+                alert(" ไม่พบข้อมูลในไฟล์ Excel");
                 return;
             }
 
@@ -467,13 +467,13 @@ function processExcelFile(file) {
             ipcRenderer.send('import-products-bulk', jsonData);
 
             ipcRenderer.once('import-success', (event, count) => {
-                alert(`✅ นำเข้าข้อมูลสำเร็จทั้งหมด ${count} รายการ`);
+                alert(` นำเข้าข้อมูลสำเร็จทั้งหมด ${count} รายการ`);
                 ipcRenderer.send('load-products'); 
             });
 
         } catch (err) {
             console.error("Excel Error:", err);
-            alert("❌ เกิดข้อผิดพลาดทางเทคนิค: " + err.message);
+            alert("เกิดข้อผิดพลาดทางเทคนิค: " + err.message);
         }
     };
     reader.readAsArrayBuffer(file);

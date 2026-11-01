@@ -65,10 +65,10 @@ db.serialize(() => {
     // 5. จัดการ Index และ Migration (เพิ่มคอลัมน์ถ้ายังไม่มี)
     db.run("CREATE INDEX IF NOT EXISTS idx_pro_cat ON product(pro_category)");
     db.run("ALTER TABLE sales_history ADD COLUMN sold_by TEXT", (err) => {
-        if (!err) console.log("✅ Check: คอลัมน์ sold_by พร้อมใช้งาน");
+        if (!err) console.log(" Check: คอลัมน์ sold_by พร้อมใช้งาน");
     });
 
-    console.log("✅ ฐานข้อมูลและตารางทั้งหมดตรวจสอบเรียบร้อยแล้ว");
+    console.log(" ฐานข้อมูลและตารางทั้งหมดตรวจสอบเรียบร้อยแล้ว");
 });
 
 
@@ -86,7 +86,7 @@ function createWindow() {
     win.loadFile(path.join(__dirname, 'src/Login.html'));
 
     win.webContents.on('did-fail-load', () => {
-        console.error("❌ ERROR: ไม่สามารถโหลดไฟล์ Login.html ได้");
+        console.error(" ERROR: ไม่สามารถโหลดไฟล์ Login.html ได้");
     });
 }
 // ตัวแปรเสริมสำหรับช่วยจัดการ Query ตามช่วงเวลา
@@ -106,31 +106,27 @@ function getTimeFilterSQL(filterType) {
 ipcMain.on('login-attempt', (event, data) => {
     const { username, password } = data;
     
-    // ดึงชื่อพนักงาน (emp_name), รหัสผ่าน และบทบาท เพื่อนำไปใช้งาน
-    const sql = "SELECT emp_name, password, role FROM employee WHERE username = ?";
     
-    db.get(sql, [username], (err, row) => {
+    const loginSql = "SELECT emp_name, password, role FROM employee WHERE username = ?";
+    
+    db.get(loginSql, [username], (err, row) => {
         if (err) {
             event.reply('login-response', { success: false, message: "ระบบฐานข้อมูลขัดข้อง" });
             return;
         }
 
-        // ตรวจสอบว่าพบชื่อผู้ใช้หรือไม่
         if (!row) {
             event.reply('login-response', { success: false, message: "ไม่พบชื่อผู้ใช้งานนี้ในระบบ" });
             return;
         }
 
-        // ตรวจสอบความถูกต้องของรหัสผ่าน
         if (row.password === password) {
-            // ✅ เข้าสู่ระบบสำเร็จ: ส่ง userName กลับไปเพื่อแสดงผลที่หน้า Dashboard
             event.reply('login-response', { 
                 success: true, 
                 userName: row.emp_name,
                 role: row.role 
             });
         } else {
-            // ❌ รหัสผ่านไม่ถูกต้อง
             event.reply('login-response', { success: false, message: "รหัสผ่านไม่ถูกต้อง" });
         }
     });
@@ -142,7 +138,7 @@ ipcMain.on('login-attempt', (event, data) => {
 
 // ================= ระบบ Dashboard & Graphs (Real-time) =================
 
-// 🟢 กราฟหน้านำเข้า: เปรียบเทียบ รายจ่ายพนักงาน (ฟ้า) vs นำเข้าสินค้า (เขียว)
+//  กราฟหน้านำเข้า: เปรียบเทียบ รายจ่ายพนักงาน (ฟ้า) vs นำเข้าสินค้า (เขียว)
 ipcMain.on('get-import-summary-chart', (event) => {
     const sql = `
         SELECT 'รายจ่ายพนักงาน' as category, COALESCE(SUM(salary), 0) as total_amount FROM employee

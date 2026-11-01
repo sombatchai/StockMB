@@ -39,7 +39,7 @@ body { background-color: var(--background-grey); height: 100vh; overflow: hidden
     font-size: 1.1rem;       /* ปรับขนาดตัวอักษรให้เล็กลงเล็กน้อย */
 }
 
-/* 🟢 การจัด Grid 2 คอลัมน์ (แก้ปัญหาจากรูป image_670ea4.png) */
+/*  การจัด Grid 2 คอลัมน์ (แก้ปัญหาจากรูป image_670ea4.png) */
 .dashboard-grid-layout {
     display: grid !important;
     grid-template-columns: 1fr 340px !important; /* ฝั่งซ้ายกราฟ | ฝั่งขวาแผงข้อมูล */
@@ -71,7 +71,7 @@ body { background-color: var(--background-grey); height: 100vh; overflow: hidden
 
 .data-list-placeholder { background: #e0e0e0; flex-grow: 1; border-radius: 8px; min-height: 100px; }
 
-/* 🟢 ปุ่มสรุปรายจ่าย 3 สี ตามรูปเป๊ะๆ --- */
+/*  ปุ่มสรุปรายจ่าย 3 สี  --- */
 .summary-box { padding: 15px; border-radius: 12px; text-align: center; color: white; margin-bottom: 10px; display: flex; flex-direction: column; }
 .color-cyan { background-color: #6ed3e8; }
 .color-green { background-color: #2ecc71; }
@@ -89,7 +89,7 @@ body { background-color: var(--background-grey); height: 100vh; overflow: hidden
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* กล่องขาดทุน (สีแดง) */
+/* กล่องขาดทุน  */
 .loss-box {
     background-color: #dc3545; /* สีแดง */
     color: white;
@@ -117,7 +117,7 @@ body { background-color: var(--background-grey); height: 100vh; overflow: hidden
     font-size: 0.9em;
     opacity: 0.9;
 }
-/* ลบหรือคอมเมนต์สไตล์เก่าของ .sidebar li.active ออกก่อน แล้วแทนที่ด้วยด้านล่างนี้ */
+
 
 /* --- ส่วนปรับปรุง Sidebar --- */
 .sidebar ul li.active {
@@ -195,7 +195,7 @@ body { background-color: var(--background-grey); height: 100vh; overflow: hidden
     padding: 8px;
     background: none;
     cursor: pointer;
-    display: inline-block; /* เพิ่มเพื่อให้ <a> แสดงผลเหมือนปุ่ม */
+    display: inline-block; 
     text-align: center;
 }
 

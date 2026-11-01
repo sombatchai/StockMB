@@ -61,7 +61,7 @@
 
             // ตรวจสอบความถูกต้องเบื้องต้น
             if (pass !== confirmPass) {
-                alert("🚨 รหัสผ่านใหม่และยืนยันรหัสผ่านไม่ตรงกัน");
+                alert(" รหัสผ่านใหม่และยืนยันรหัสผ่านไม่ตรงกัน");
                 return;
             }
 
@@ -82,11 +82,11 @@
         });
         
 function loadData() {
-    // 🟢 1. ล้างตัวดักฟังเก่าออกให้หมดก่อน (เพื่อไม่ให้ทำงานซ้อนกันจนอืด)
+    //  1. ล้างตัวดักฟังเก่าออกให้หมดก่อน 
     ipcRenderer.removeAllListeners('render-employees');
     ipcRenderer.removeAllListeners('render-products');
 
-    // 🟢 2. ส่งคำสั่งดึงข้อมูล
+    //  2. ส่งคำสั่งดึงข้อมูล
     ipcRenderer.send('load-data-request');
 }
 

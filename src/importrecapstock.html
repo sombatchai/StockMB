@@ -106,11 +106,11 @@
     const sidebar = document.querySelector('.sidebar ul');
 
     if (role === 'Staff') {
-        // 🟢 สำหรับพนักงานทั่วไป: ซ่อนเมนูที่ไม่เกี่ยวข้อง
+        // สำหรับพนักงานทั่วไป: ซ่อนเมนูที่ไม่เกี่ยวข้อง
         const adminMenus = document.querySelectorAll('.admin-only');
         adminMenus.forEach(menu => menu.style.display = 'none');
         
-        // หากพนักงานพยายามเข้าหน้า index.html (Dashboard) ให้ดีดไปหน้าขายสินค้าทันที
+        // หากพนักงานพยายามเข้าหน้า index.html  ให้ดีดไปหน้าขายสินค้าทันที
         if (window.location.pathname.includes('index.html')) {
             window.location.href = 'productsales.html';
         }
@@ -118,18 +118,18 @@
 });
 
 function loadData() {
-    // 🟢 1. ล้างตัวดักฟังเก่าออกให้หมดก่อน (เพื่อไม่ให้ทำงานซ้อนกันจนอืด)
+    // 1. ล้างตัวดักฟังเก่าออกให้หมดก่อน (เพื่อไม่ให้ทำงานซ้อนกันจนอืด)
     ipcRenderer.removeAllListeners('render-employees');
     ipcRenderer.removeAllListeners('render-products');
 
-    // 🟢 2. ส่งคำสั่งดึงข้อมูล
+    //  2. ส่งคำสั่งดึงข้อมูล
     ipcRenderer.send('load-data-request');
 }
 
 // เรียกใช้งานเมื่อโหลดหน้า
 document.addEventListener('DOMContentLoaded', loadData);
 
-    // 4. แสดงผลรายการนำเข้า (จุดสำคัญที่แก้ไขให้โชว์ชื่อคนนำเข้า)
+    // 4. แสดงผลรายการนำเข้า 
     ipcRenderer.on('render-import-history', (event, groupedData) => {
         const historyContainer = document.getElementById('history-content');
         historyContainer.innerHTML = ''; 

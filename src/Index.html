@@ -117,7 +117,7 @@
             document.getElementById('realtime-sales').innerText = (stats.sales || 0).toLocaleString();
         });
 
-        // 🟢 ระบบวาดกราฟเปรียบเทียบ รายรับ vs ต้นทุน
+        //  ระบบวาดกราฟเปรียบเทียบ รายรับ vs ต้นทุน
         ipcRenderer.on('render-revenue-cost-chart', (event, data) => {
             const ctx = document.getElementById('salesChart').getContext('2d');
             
@@ -171,7 +171,7 @@
     const sidebar = document.querySelector('.sidebar ul');
 
     if (role === 'Staff') {
-        // 🟢 สำหรับพนักงานทั่วไป: ซ่อนเมนูที่ไม่เกี่ยวข้อง
+        //  สำหรับพนักงานทั่วไป: ซ่อนเมนูที่ไม่เกี่ยวข้อง
         const adminMenus = document.querySelectorAll('.admin-only');
         adminMenus.forEach(menu => menu.style.display = 'none');
         
@@ -184,11 +184,11 @@
 
 
 function loadData() {
-    // 🟢 1. ล้างตัวดักฟังเก่าออกให้หมดก่อน (เพื่อไม่ให้ทำงานซ้อนกันจนอืด)
+    //  1. ล้างตัวดักฟังเก่าออกให้หมดก่อน (เพื่อไม่ให้ทำงานซ้อนกันจนอืด)
     ipcRenderer.removeAllListeners('render-employees');
     ipcRenderer.removeAllListeners('render-products');
 
-    // 🟢 2. ส่งคำสั่งดึงข้อมูล
+    //  2. ส่งคำสั่งดึงข้อมูล
     ipcRenderer.send('load-data-request');
 }
 

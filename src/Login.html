@@ -51,10 +51,10 @@
         localStorage.setItem('employeeRole', res.role); 
         
         if (res.role === 'Staff') {
-            //  จุดที่ 1: แก้เป็น ProductSales.html (ตัว P และ S ใหญ่)
+            
             window.location.href = 'ProductSales.html'; 
         } else {
-            //  จุดที่ 2: แก้เป็น Index.html (ตัว I ใหญ่)
+            
             window.location.href = 'Index.html'; 
         }
     } else {
@@ -64,11 +64,11 @@
 
 
 function loadData() {
-    // 🟢 1. ล้างตัวดักฟังเก่าออกให้หมดก่อน (เพื่อไม่ให้ทำงานซ้อนกันจนอืด)
+    //  1. ล้างตัวดักฟังเก่าออกให้หมดก่อน (เพื่อไม่ให้ทำงานซ้อนกันจนอืด)
     ipcRenderer.removeAllListeners('render-employees');
     ipcRenderer.removeAllListeners('render-products');
 
-    // 🟢 2. ส่งคำสั่งดึงข้อมูล
+    //  2. ส่งคำสั่งดึงข้อมูล
     ipcRenderer.send('load-data-request');
 }
 
